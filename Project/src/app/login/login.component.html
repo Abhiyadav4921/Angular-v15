@@ -1,0 +1,50 @@
+
+<div class="login-container">
+    <h3>Welcome To Login Form</h3>
+     <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+       <!-- username -->
+       <div class="form-group">
+         <label for="username">Username</label>
+         <input
+           type="text"
+           id="username"
+           name="username"
+           [(ngModel)]="loginData.username"
+           #username="ngModel"
+           required
+           class="form-control"
+         />
+   
+         <div *ngIf="username.invalid && username.touched" class="error-message">
+           Username is required.
+         </div>
+       </div>
+       <!-- password -->
+       <div class="form-group">
+         <label for="password">Password</label>
+         <input
+           type="password"
+           id="password"
+           name="password"
+           [(ngModel)]="loginData.password"
+           #password="ngModel"
+           required
+           class="form-control"
+         />
+         <div *ngIf="password.invalid && password.touched" class="error-message">
+           Password is required.
+         </div>
+       </div>
+       <div class="form-footer">
+         <p>Don't have an account?<a routerLink="../register" class="btn">Register here</a></p>
+         
+       </div>
+       <!-- submit -->
+       <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">
+         Login
+       </button>
+     </form>
+     
+   </div>
+   
+   
